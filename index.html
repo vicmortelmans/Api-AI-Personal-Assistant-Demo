@@ -126,7 +126,7 @@
 
       if (val !== messageRecording) {
         var phrase = val;
-        sentences = phrase.split(".")
+        sentences = phrase.split(/\.|\?|\!|\;|\:/)
         for (i = 0; i < sentences.length; i++) {
           sentence = sentences[i]
           audio = new SpeechSynthesisUtterance(sentence)
