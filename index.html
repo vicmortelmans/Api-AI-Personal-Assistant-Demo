@@ -2,10 +2,10 @@
 <head>
   <title>Bible Reader</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript">
     var accessToken = "13ba1e255ad74e8994c17735619bb0f4",
-      baseUrl = "//api.api.ai/v1/",
+      baseUrl = "https://api.api.ai/v1/",
       version = "20150910",
       $speechInput,
       $recBtn,
@@ -113,6 +113,7 @@
 
       respond(spokenResponse);
       debugRespond(debugJSON);
+      $speechInput.val("");
     }
 
     function debugRespond(val) {
@@ -127,10 +128,12 @@
       if (val !== messageRecording) {
         var phrase = val;
         sentences = phrase.split(/\.|\?|\!|\;|\:/)
+        voices = window.speechSynthesis.getVoices();
         for (i = 0; i < sentences.length; i++) {
           sentence = sentences[i]
           audio = new SpeechSynthesisUtterance(sentence)
-          audio.lang = "nl-NL";
+          audio.lang = "en-US";
+          audio.voice = voices[3];
           window.speechSynthesis.speak(audio)
         }
       }
@@ -247,6 +250,6 @@
     </div>
   </div>
 
-  <link href="//fonts.googleapis.com/css?family=Titillium+Web:200" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:200" rel="stylesheet" type="text/css">
 </body>
 </html>
