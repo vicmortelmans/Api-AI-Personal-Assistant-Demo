@@ -1,17 +1,17 @@
 <html>
 <head>
-  <title>Bible Reader</title>
+  <title>Bijbellezer</title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   <script type="text/javascript">
-    var accessToken = "13ba1e255ad74e8994c17735619bb0f4",
+    var accessToken = "d9e0762f034e48d0ac6b5704e20ca256",
       baseUrl = "//api.api.ai/v1/",
       version = "20150910",
       $speechInput,
       $recBtn,
       recognition,
       messageRecording = "Recording...",
-      messageCouldntHear = "I couldn't hear you, please say again.",
+      messageCouldntHear = "Ik kon je niet horen, zeg het nog eens.",
       messageInternalError = "Oh no, there has been an internal server error",
       messageSorry = "I'm sorry, I don't have the answer to that yet.";
 
@@ -57,7 +57,7 @@
         respond(messageCouldntHear);
         stopRecognition();
       };
-      recognition.lang = "en-US";
+      recognition.lang = "nl-NL";
       recognition.start();
     }
   
@@ -96,7 +96,7 @@
         headers: {
           "Authorization": "Bearer " + accessToken
         },
-        data: {v: version, query: text, lang: "en", sessionId: "read the holy bible"},
+        data: {v: version, query: text, lang: "nl", sessionId: "lees bijbelverzen"},
 
         success: function(data) {
           prepareResponse(data);
